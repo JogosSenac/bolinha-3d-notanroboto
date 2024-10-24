@@ -6,21 +6,25 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class GameOver : MonoBehaviour
+{ 
 [SerializeField] private bool invertV;
 [SerializeField] private int pontos;
 private bool estaVivo;
+    private bool rb;
+    private float moveH;
+    private float moveV;
 
 [Header("Sons da Bolinha")]
 [SerializeField] private AudioClip pulo;
 [SerializeField] private AudioClip pegaCubo;
 private AudioSource audioPlayer;
-private TextMeshProGUI textoPontos;
-private TextMeshProGUI textoTotal;
+private TextMeshProUGUI textoPontos;
+private TextMeshProUGUI textoTotal;
 
 [Header("HUD")]
 [SerializeField] private List<Sprite> emojis = new List<Sprite>();
 [SerializeField] private GameObject telaGameOver;
-{
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +51,7 @@ private TextMeshProGUI textoTotal;
 
             // pulo
             if (Input.GetKeyDown(KeyCode.Escape))
-                VerificaObjetivos();
+                VerificaObjetos();
 
         }
         else
